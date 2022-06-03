@@ -6,6 +6,7 @@ import { store } from './redux/store'
 import {BrowserRouter} from 'react-router-dom'
 import {createGlobalStyle} from 'styled-components'
 
+/* глобальные стили для всего приложения */
 const Global = createGlobalStyle`
 * {
     background: black;
@@ -17,8 +18,6 @@ const Global = createGlobalStyle`
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
 }
 `
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 

@@ -1,7 +1,8 @@
 export const INIT_GAMES = 'INIT_GAMES'
 export const INIT_GAME = 'INIT_GAME'
 export const INIT_PLATFORMS = 'INIT_PLATFORMS'
-
+export const INIT_GAMES_SEARCH ='INIT_GAMES_SEARCH'
+export const INIT_GAMES_REMOVE = "INIT_GAMES_REMOVE"
 
 
 
