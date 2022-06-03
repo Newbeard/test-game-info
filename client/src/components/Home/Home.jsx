@@ -20,7 +20,7 @@ export default function Home(props) {
   const [isModal, setModal] = useState(false)
   const [search, setSearch] = useState('');
 
-  /* запрос на получение списка игр при первой инициализации, и при прокрутке скрола */
+  /* запрос на получение списка игр при первой инициализации, и при прокрутке скрола, не сделана проверка на длину общего количества игр */
   useEffect(() =>{
    const payload = {platform: platform?.value, sortRating: sortRating?.value, sortData:sortData?.value, page}
     if(fetching && search === ''){
