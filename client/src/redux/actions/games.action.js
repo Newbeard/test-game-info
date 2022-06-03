@@ -34,7 +34,6 @@ export const initPlatforms = (data) => ({
 /* запрос к API получение  игр с учетом параметров селекторов, требуется оптимизация */
 export const initGamesApi = (payload) => async (dispatch) => {
 try {
-  console.log(process.env.BASE_URL);
   if(!payload.sortRating && !payload.sortData && !payload.platform){
     const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12`)
     data.results.count = data.count;
