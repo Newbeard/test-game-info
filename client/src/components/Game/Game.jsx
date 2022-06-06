@@ -6,20 +6,27 @@ import { FlexContainer, Img, ImgBox, ButtonContainer, ActionButton, InfoTitle, T
 
 
 function Game({userWidth}) {
+
   const dispatch = useDispatch()
+
   const {game} = useSelector((state) => state);
+
   const { id } = useParams();
+
   /* формирование массива картинок игры */
+
   const  screenshotsUrl = game.screenshotsUrl?.map((el) => el.image)
   const [idScreen, setIdscreen]  = useState(0)
   
   /* запрос на получение информации об игре по id  */
+
   useEffect(() =>{
       dispatch(initGameApi(id))
    // eslint-disable-next-line react-hooks/exhaustive-deps
    },[dispatch])
 
    /* функция для переключения между изображениями к игре */
+   
    const nextElement = ()=> {
      if(idScreen < screenshotsUrl.length -1){
        setIdscreen((prev) => prev +1)

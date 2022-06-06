@@ -27,7 +27,9 @@ export const initPlatforms = (data) => ({
 
  /* запрос к API для поиска игры по имени */
  export const searchInit = (payload) => async (dispatch) => {
+
   const { data } = await axios(`${process.env.REACT_APP_BASE_URL}&search=${payload}`)
+  
   dispatch(initGamesSearch(data.results))
 }
 
@@ -35,45 +37,71 @@ export const initPlatforms = (data) => ({
 export const initGamesApi = (payload) => async (dispatch) => {
 try {
   if(!payload.sortRating && !payload.sortData && !payload.platform){
+
     const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12`)
+
     data.results.count = data.count;
+
     dispatch(initGames(data.results))
+
     const platforms = await axios(process.env.REACT_APP_URL_PLATFORMS)
+
     dispatch(initPlatforms(platforms.data.results))
   }
   else if (payload.sortRating && payload.sortData && payload.platform){
+
     const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12&ordering=${payload.sortRating}&ordering=${payload.sortData}&parent_platforms=${payload.platform}`)
+   
     data.results.count = data.count;
+
     dispatch(initGames(data.results))
   }
   else if(payload.sortRating && !payload.sortData && !payload.platform){
-     const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12&ordering=${payload.sortRating}`)
-     data.results.count = data.count;
-     dispatch(initGames(data.results))
+    
+    const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12&ordering=${payload.sortRating}`)
+    
+    data.results.count = data.count;
+    
+    dispatch(initGames(data.results))
   }
   else if(!payload.sortRating && payload.sortData && !payload.platform){
+    
     const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12&ordering=${payload.sortData}`)
+   
     data.results.count = data.count;
+    
     dispatch(initGames(data.results))
   }
   else if(!payload.sortRating && !payload.sortData && payload.platform){
+    
     const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12&parent_platforms=${payload.platform}`)
+   
     data.results.count = data.count;
+    
     dispatch(initGames(data.results))
   }
   else if(payload.sortRating && payload.sortData && !payload.platform){
+   
     const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12&ordering=${payload.sortRating}&ordering=${payload.sortData}`)
+   
     data.results.count = data.count;
+   
     dispatch(initGames(data.results))
   }
   else if(!payload.sortRating && payload.sortData && payload.platform){
+   
     const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12&ordering=${payload.sortData}&parent_platforms=${payload.platform}`)
+   
     data.results.count = data.count;
+   
     dispatch(initGames(data.results))
   }
   else if(payload.sortRating && !payload.sortData && payload.platform){
+   
     const {data} = await axios(`${process.env.REACT_APP_BASE_URL}&page=${payload.page}&page_size=12&ordering=${payload.sortRating}&parent_platforms=${payload.platform}`)
+   
     data.results.count = data.count;
+   
     dispatch(initGames(data.results))
   }
 } catch (error) {

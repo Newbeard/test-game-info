@@ -7,6 +7,7 @@ import {BrowserRouter} from 'react-router-dom'
 import {createGlobalStyle} from 'styled-components'
 
 /* глобальные стили для всего приложения */
+
 const Global = createGlobalStyle`
 * {
     background: black;

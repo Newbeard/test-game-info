@@ -8,14 +8,17 @@ const optionsSortRating = [
   { value: 'rating', label: 'sort rating ascending' },
   { value: '-rating', label: 'sort rating descending' },
 ];
+
 const optionsSortData = [
   { value: 'released', label: 'release date ascending' },
   { value: '-released', label: 'release date descending' },
 ];
 
 
-function Controller({ setSortRating, setSortData, setPlatform, page, sortRating, sortData, platform, search, setSearch,resetSearch }) {
+function Controller({ setSortRating, setSortData, setPlatform, sortRating, sortData, platform, search, setSearch}) {
+  
   const {platforms} = useSelector(state => state)
+ 
   const dispatch = useDispatch()
 
   /* функция поиска игы по имени, принимает данные введенные пользователем */
