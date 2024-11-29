@@ -1,5 +1,5 @@
 # test-game-info
-#https://delicate-pastelito-fe3e51.netlify.app/
+#https://delicate-pastelito-fe3e51.netlify.app/ ссылка не актуальна
 # Тестовое задание с использованнием стороннего API  и библиотеки Styled-Components на React
 # Отображение списка игр(скрол) и информации по конкретной игре
 # Функционал:
